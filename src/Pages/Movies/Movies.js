@@ -1,6 +1,4 @@
-import { Chip } from "@material-ui/core";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Genres from "../../components/Genres/Genres";
 import "./Movies.css";
 
