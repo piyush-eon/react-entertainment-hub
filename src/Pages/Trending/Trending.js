@@ -2,6 +2,7 @@ import axios from "axios";
 import "./Trending.css";
 import { useEffect, useState } from "react";
 import SingleContent from "../../components/SingleContent/SingleContent";
+import CustomPagination from "../../components/Pagination/CustomPagination";
 
 const Trending = () => {
   const [page, setPage] = useState(1);
@@ -13,13 +14,11 @@ const Trending = () => {
     );
 
     setContent(data.results);
+    console.log(data);
   };
-
-  // console.log(content[0]);
 
   useEffect(() => {
     fetchTrending();
-
     // eslint-disable-next-line
   }, [page]);
 
@@ -31,6 +30,7 @@ const Trending = () => {
           content.map((c) => (
             <SingleContent
               key={c.id}
+              id={c.id}
               poster={c.poster_path}
               title={c.title || c.name}
               date={c.first_air_date || c.release_date}
@@ -39,6 +39,7 @@ const Trending = () => {
             />
           ))}
       </div>
+      <CustomPagination setPage={setPage} />
     </div>
   );
 };
