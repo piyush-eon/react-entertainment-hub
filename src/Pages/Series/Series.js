@@ -19,7 +19,7 @@ const Series = () => {
     );
     setContent(data.results);
     setNumOfPages(data.total_pages);
-    console.log(data);
+    // console.log(data);
   };
 
   useEffect(() => {
