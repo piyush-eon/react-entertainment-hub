@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import { img_300 } from "../../config/config";
+import { img_300, noPicture } from "../../config/config";
 import "./Carousel.css";
 
 const handleDragStart = (e) => e.preventDefault();
@@ -13,16 +13,12 @@ const Gallery = ({ id, media_type }) => {
   const items = credits.map((c) => (
     <div className="carouselItem">
       <img
-        src={
-          c.profile_path
-            ? `${img_300}/${c.profile_path}`
-            : "https://upload.wikimedia.org/wikipedia/en/6/60/No_Picture.jpg"
-        }
+        src={c.profile_path ? `${img_300}/${c.profile_path}` : noPicture}
         alt={c?.name}
         onDragStart={handleDragStart}
-        className="yours-custom-class"
+        className="carouselItem__img"
       />
-      <b style={{ textAlign: "center" }}>{c?.name}</b>
+      <b className="carouselItem__txt">{c?.name}</b>
     </div>
   ));
 
@@ -40,12 +36,10 @@ const Gallery = ({ id, media_type }) => {
 
   const fetchCredits = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=26ba5e77849587dbd7df199727859189&language=en-US`
+      `https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
     );
     setCredits(data.cast);
   };
-
-  console.log(credits);
 
   useEffect(() => {
     fetchCredits();
@@ -60,6 +54,7 @@ const Gallery = ({ id, media_type }) => {
       disableButtonsControls
       responsive={responsive}
       items={items}
+      autoPlay
     />
   );
 };

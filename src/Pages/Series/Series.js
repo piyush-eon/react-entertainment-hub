@@ -15,7 +15,7 @@ const Series = () => {
 
   const fetchSeries = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/discover/tv?api_key=26ba5e77849587dbd7df199727859189&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`
+      `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`
     );
     setContent(data.results);
     setNumOfPages(data.total_pages);
@@ -25,7 +25,7 @@ const Series = () => {
   useEffect(() => {
     fetchSeries();
     // eslint-disable-next-line
-  }, [genreforURL]);
+  }, [genreforURL, page]);
 
   return (
     <div>
@@ -36,6 +36,7 @@ const Series = () => {
         setSelectedGenres={setSelectedGenres}
         genres={genres}
         setGenres={setGenres}
+        setPage={setPage}
       />
       <div className="trending">
         {content &&
