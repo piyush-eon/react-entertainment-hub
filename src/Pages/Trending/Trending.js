@@ -14,10 +14,10 @@ const Trending = () => {
     );
 
     setContent(data.results);
-    // console.log(data);
   };
 
   useEffect(() => {
+    window.scroll(0, 0);
     fetchTrending();
     // eslint-disable-next-line
   }, [page]);

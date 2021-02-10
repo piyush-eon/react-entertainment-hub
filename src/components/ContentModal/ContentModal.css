@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
 
 .ContentModal__landscape {
-  /* height: 40%; */
   object-fit: contain;
   border-radius: 10px;
 }

@@ -23,6 +23,7 @@ const Series = () => {
   };
 
   useEffect(() => {
+    window.scroll(0, 0);
     fetchSeries();
     // eslint-disable-next-line
   }, [genreforURL, page]);

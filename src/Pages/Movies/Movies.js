@@ -1,5 +1,4 @@
 import axios from "axios";
-import "./Movies.css";
 import { useEffect, useState } from "react";
 import Genres from "../../components/Genres/Genres";
 import SingleContent from "../../components/SingleContent/SingleContent";
@@ -13,6 +12,7 @@ const Movies = () => {
   const [content, setContent] = useState([]);
   const [numOfPages, setNumOfPages] = useState();
   const genreforURL = useGenre(selectedGenres);
+  // console.log(selectedGenres);
 
   const fetchMovies = async () => {
     const { data } = await axios.get(
@@ -20,10 +20,10 @@ const Movies = () => {
     );
     setContent(data.results);
     setNumOfPages(data.total_pages);
-    // console.log(data);
   };
 
   useEffect(() => {
+    window.scroll(0, 0);
     fetchMovies();
     // eslint-disable-next-line
   }, [genreforURL, page]);

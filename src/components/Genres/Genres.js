@@ -51,7 +51,6 @@ const Genres = ({
           clickable
           size="small"
           onDelete={() => handleRemove(genre)}
-          // onClick={() => handleRemove(genre)}
         />
       ))}
       {genres.map((genre) => (

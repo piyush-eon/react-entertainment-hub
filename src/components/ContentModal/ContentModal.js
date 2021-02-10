@@ -52,6 +52,7 @@ export default function TransitionsModal({ children, media_type, id }) {
     );
 
     setContent(data);
+    // console.log(data);
   };
 
   const fetchVideo = async () => {
@@ -115,10 +116,11 @@ export default function TransitionsModal({ children, media_type, id }) {
                 <div className="ContentModal__about">
                   <span className="ContentModal__title">
                     {content.name || content.title} (
-                    {(content.first_air_date || content.release_date).substring(
-                      0,
-                      4
-                    )}
+                    {(
+                      content.first_air_date ||
+                      content.release_date ||
+                      "-----"
+                    ).substring(0, 4)}
                     )
                   </span>
                   {content.tagline && (
