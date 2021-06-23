@@ -1,11 +1,14 @@
 .carouselItem {
-  display: flex;
-  flex-direction: column;
-  object-fit: contain;
-  padding: 10px;
+	display: flex;
+	flex-direction: column;
+	object-fit: contain;
+	padding: 10px;
 }
+
 .carouselItem__img {
-  border-radius: 10px;
-  margin-bottom: 5px;
-  box-shadow: 0px 0px 5px black;
+	border-radius: 10px;
+	height: 150px;
+	width: 100px;
+	margin-bottom: 5px;
+	box-shadow: 0px 0px 5px black;
 }
