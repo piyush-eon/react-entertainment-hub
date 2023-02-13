@@ -6,6 +6,7 @@ import TvIcon from "@material-ui/icons/Tv";
 import MovieIcon from "@material-ui/icons/Movie";
 import SearchIcon from "@material-ui/icons/Search";
 import WhatshotIcon from "@material-ui/icons/Whatshot";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
@@ -32,6 +33,8 @@ export default function SimpleBottomNavigation() {
       history.push("/series");
     } else if (value === 3) {
       history.push("/search");
+    } else if (value === 4) {
+      history.push("/favourites");
     }
   }, [value, history]);
 
@@ -64,6 +67,21 @@ export default function SimpleBottomNavigation() {
         label="Search"
         icon={<SearchIcon />}
       />
+
+
+    
+      {/* This Code Adds a Favourite Tab to the Bottom Navigation. */}
+
+      <BottomNavigationAction
+        style={{ color: "white" }}
+        label="Search"
+        icon={<FavoriteIcon />}
+      />
+
+
+
+
+
     </BottomNavigation>
   );
 }
