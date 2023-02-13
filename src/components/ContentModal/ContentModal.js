@@ -144,6 +144,7 @@ export default function TransitionsModal({ children, media_type, id }) {
                   >
                     Watch the Trailer
                   </Button>
+                  <Button style={{marginTop:10}} variant="contained" color="primary">Add To WatchList </Button>
                 </div>
               </div>
             </div>
